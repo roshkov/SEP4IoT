@@ -1,5 +1,7 @@
 package com.application.cmapp.viewmodel;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -15,6 +17,7 @@ public class logInViewModel extends ViewModel {
     @NonNull
     public MutableLiveData<String> getLoginLiveData(String userEmail, String userPass)
     {
+        Log.i("VM=====", "reaches");
         return repository.getAdminLogin(userEmail,userPass);
     }
 
@@ -25,6 +28,7 @@ public class logInViewModel extends ViewModel {
 
     public MutableLiveData<String>  AdminSignOut()
     {
+        Log.i("VMquit=====", "reaches");
         return repository.AdminSignOut();
     }
 

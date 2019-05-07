@@ -3,6 +3,7 @@ package com.application.cmapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -16,10 +17,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.application.cmapp.R;
 import com.application.cmapp.activities.MainActivity;
+import com.application.cmapp.model.Admin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import static com.application.cmapp.activities.MainActivity.loginVM;
 
@@ -33,6 +38,8 @@ public class ActivityLoginAdmin extends AppCompatActivity {
     Button userLogin;
     Button userSignOut;
     MainActivity activityReferenceVarMain;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +60,13 @@ public class ActivityLoginAdmin extends AppCompatActivity {
         {
             @Override
             public void onClick(View view){
+
+
                 loginVM.getLoginLiveData(userEmail.getText().toString(), userPass.getText().toString());
+                Log.i("ActivityLogIn=====", "reaches");
+
                 finish();
+
             }
 
         });

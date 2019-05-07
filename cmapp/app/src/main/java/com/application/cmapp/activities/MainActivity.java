@@ -94,6 +94,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         MutableLiveData<String> readingLoginLiveData = loginVM.getAdminIsLoggedInCheck();
+        MutableLiveData<String> readingSignOutLiveData = loginVM.AdminSignOut();
+
+
+
+        readingSignOutLiveData.observe(this, new Observer<String>()
+        {
+            public void onChanged( String s)
+            {
+                email.setText(s);
+            }
+        });
+
+
 
         readingLoginLiveData.observe(this, new Observer<String>()
         {
@@ -121,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent (MainActivity.this, ActivityLoginAdmin.class);
+               // finish();
+
                 startActivity(intent);
                // finish();
             }

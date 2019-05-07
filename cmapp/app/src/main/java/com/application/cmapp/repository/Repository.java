@@ -110,7 +110,7 @@ public class Repository {
 
     public MutableLiveData<String> AdminSignOut()
     {
-
+        Log.i("repoSignout=====", "reaches");
         fbClient.AdminSignOut();
         liveDataLogin.postValue(fbClient.AdminIsLoggedInCheck());
 
@@ -121,6 +121,7 @@ public class Repository {
 
     public MutableLiveData<String> getAdminLogin(String userEmail, String userPass)
     {
+        Log.i("Repo_getAdminLogin===", "reaches");
             AdminLogin( userEmail,  userPass);   //calls LD change
             return liveDataLogin;                 //return LD
     }
