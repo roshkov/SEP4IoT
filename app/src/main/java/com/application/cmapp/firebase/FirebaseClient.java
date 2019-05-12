@@ -78,9 +78,17 @@ public class FirebaseClient {
 
     public void AdminSignOut()
     {
-        mAuth.signOut();
 
+        mAuth.signOut();
+        Repository.getInstance().liveDataLogin.postValue("Anonymous user");
+
+
+        Log.i("=========SIGNOUT",(firebaseUser==null)+" ");
     }
+
+
+
+    
 
 
 }

@@ -114,6 +114,7 @@ public class Repository {
         fbClient.AdminSignOut();
         liveDataLogin.postValue(fbClient.AdminIsLoggedInCheck());
 
+
         return liveDataLogin;
 
     }

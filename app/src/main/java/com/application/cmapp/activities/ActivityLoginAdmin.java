@@ -62,8 +62,7 @@ public class ActivityLoginAdmin extends AppCompatActivity {
         {
             @Override
             public void onClick(View view){
-
-             loginVM.getLoginLiveData(userEmail.getText().toString(), userPass.getText().toString());
+                loginMethod();
                 finish();
 
             }
@@ -74,31 +73,45 @@ public class ActivityLoginAdmin extends AppCompatActivity {
         userSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              loginVM.AdminSignOut();
-              loginVM.getAdminIsLoggedInCheck();
-              finish();
+                //loginVM.AdminSignOut();
+                signOutMethod();
+                finish();
+
 
             }
         });
 
-        setUpIfLoggedIn();
+        //setUpIfLoggedIn();
 
     }
 
+//
+//    public void setUpIfLoggedIn()
+//    {
+//        Log.i("________value", loginVM.getAdminIsLoggedInCheck().getValue());
+//
+//        String mail = loginVM.getAdminIsLoggedInCheck().getValue();
+//        if (! (mail.equals("Anonymous user")))
+//        {
+//            userEmail.setText(mail);
+//            userPass.setVisibility(View.INVISIBLE);
+//            userLogin.setVisibility(View.INVISIBLE);
+//        }
+//
+//
+//    }
 
-    public void setUpIfLoggedIn()
+    public void loginMethod()
     {
-        Log.i("________value", loginVM.getAdminIsLoggedInCheck().getValue());
+        loginVM.getLoginLiveData(userEmail.getText().toString(), userPass.getText().toString());
+    }
 
-        String mail = loginVM.getAdminIsLoggedInCheck().getValue();
-        if (! (mail.equals("Anonymous user")))
-        {
-            userEmail.setText(mail);
-            userPass.setVisibility(View.INVISIBLE);
-            userLogin.setVisibility(View.INVISIBLE);
-        }
+    public void signOutMethod()
+    {
+        loginVM.AdminSignOut();
 
-
+        loginVM.getAdminIsLoggedInCheck();
+        Log.i("__________SignOut",  loginVM.AdminSignOut().getValue());
     }
 
 }
