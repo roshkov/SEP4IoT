@@ -46,6 +46,7 @@ public class FirebaseClient {
                         }
                         else{
                             loginReply = "Anonymous user";
+                            Repository.getInstance().liveDataLogin.postValue(loginReply);
                         }
                     }
                 });
